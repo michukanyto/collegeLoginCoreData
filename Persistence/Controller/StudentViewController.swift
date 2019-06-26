@@ -39,8 +39,8 @@ class StudentViewController: UIViewController {
         let students = (studentDao?.getAllStudents())!
         print (students)
         
-        var stId = studentIdLogInTextView.text
-        var stPassword = passwordStudenLogInTextView.text
+        let stId = studentIdLogInTextView.text
+        let stPassword = passwordStudenLogInTextView.text
         
         if let student = studentDao?.getStudentByAttribute(attributeName: "stId", attributeValue: stId!) {
             if student.password! == stPassword {
@@ -54,7 +54,7 @@ class StudentViewController: UIViewController {
         let random = Int.random(in: 100..<10000)
         let random1 = String.randomElement("ABCDEFGHIJKLMNOPQRSTUVXYZ")
         let random2 = String.randomElement("abcdefghijklmnopqrstuvxyz")
-        let stId = String(random1()!) + String(random) + String(random2()!)
+        let stId = "ST" + String(random1()!) + "-" + String(random) + String(random2()!)
         return stId
     }
     
